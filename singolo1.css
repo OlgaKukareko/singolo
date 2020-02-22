@@ -37,11 +37,12 @@
     url("./assets/fonts/Lato/Lato-Black.eot") format("embedded-opentype"), 
     url("./assets/fonts/Lato/Lato-Black.woff") format("woff"), 
     url("./assets/fonts/Lato/Lato-Black.ttf") format("truetype");
-    font-weight: 700;
+    font-weight: 400;
     font-style: normal;
   }
   * {
       box-sizing: border-box;
+      user-select: none;
   }
   body {
       margin: 0 auto;
@@ -55,12 +56,15 @@
   }
   .content  {
       width: 1020px;
-      margin: 0 auto;
+      
   }
   .container {
       max-width: 940px;
       margin: 0 auto;
   }
+
+  /* Header */
+
   .logo_block {
       height: 100%;
         display: flex;
@@ -68,11 +72,11 @@
         justify-content: flex-start;
   }
   .logo {
-    font-size: 25px;
+    font-size: 24px;
     line-height: 6px;
     color: #ffffff;
-    font-family: "Lato Black";
-    font-weight: 700;
+    font-family: "Lato Bold";
+    font-weight: bold;
     text-align: left;
     text-transform: uppercase;
     margin: 0;
@@ -84,11 +88,11 @@
   sup {
       color: red;
       position: absolute;
-      top: 36px;
-      right: -8px;
+      top: 40px;
+      right: -9px;
   }
   .header {
-    height: 89px;
+    height: 95px;
     background-color: #2d303a;
    border-bottom: 6px solid #323746;
   }
@@ -98,13 +102,18 @@
     align-items: center;
     height: 100%;
   }
+  .header__nav {
+      height: 100%;
+  }
   .header__menu {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 100%;
+      margin: 0;
   }
   .header__menu_item {
-      padding: 0px 16px;
+      padding: 6px 16px 0px 15px;
       position: relative;
   }
   .header__menu_item:last-child {
@@ -113,8 +122,8 @@
   .header__menu_item:not(:last-child)::before {
       content: ".";
       position: absolute;
-      right: 0;
-      bottom: 20%;
+      right: -1px;
+      bottom: 10%;
       color: lightgray;
   }
   .header__menu_link {
@@ -125,10 +134,18 @@
     font-weight: 700;
     text-align: left;
     text-transform: uppercase;
+    letter-spacing: -0.2px;
+    height: 100%;
+    transition: all .4s ease-in-out;
+
   }
   .header__menu_link:hover {
     color: #f06c64;
+    transition: all .4s ease-in-out;
   }
+
+/* Banner */
+
   .banner {
     height: 600px;
     width: 100%;
@@ -148,30 +165,122 @@
         justify-content: center;
   }
   .banner__slide {
-      padding-top: 54px;
+      padding-top: 52px;
       padding-bottom: 58px;
       position: absolute;
       top: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 800px;
+      width: 797px;
       height: 100%;
       z-index: 10;
   }
   .banner__arrow {
     position: absolute;
-    top: 50%;
+    top: 47%;
     width: 16px;
     height: 27px;
-    
+    cursor: pointer;
+    z-index: 10;
   }
   .banner__arrow_prev {
-      background: url("./assets/img/arrow-next.svg") no-repeat;
+      background: url("./assets/img/arrow-prev.svg") no-repeat;
       left: 0;
-      transform: rotate(180deg);
+      transition: all .3s ease-in-out;
+
   }
   .banner__arrow_next {
     background: url("./assets/img/arrow-next.svg") no-repeat;
     right: 0;
+    transition: all .3s ease-in-out;
+
+}
+.banner__arrow_next:hover {
+    background: url("./assets/img/arrow-next-dark.svg") no-repeat;
+    transition: all .3s ease-in-out;
+
+}
+.banner__arrow_prev:hover {
+    background: url("./assets/img/arrow-prev-dark.svg") no-repeat;
+    transition: all .3s ease-in-out;
+  }
+
+/*Section Services*/
+.services {
+    padding-top: 69px;
+    background-color: #f2f2f2;
+    border-bottom: 6px solid #ffffff;
+}
+.section__title {
+    color: #666d89;
+    font-family: "Lato Black";
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 17.86px;
+    margin-top: 0;
+    margin-bottom: 27px;
+}
+.section__text {
+    color: #767e9e;
+    font-family: 'Lato Light';
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 30px;
+    letter-spacing: -0.04px;
+}
+    
+
+.services__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 45px;
+}
+.services__list_item {
+    width: 299px;
+    height: 86px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 38px;
+    margin-right: 21px;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+}
+.services__list_item:nth-child(3n+3) {
+    margin-right: 0px;
+
+}
+.services__list_item-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;}
+.services__list_item-text {
+    padding-left: 21px;
+    padding-right: 0px;
+    overflow: hidden;
+    height: 100%;
+}
+.services__list_item-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #666d89;
+    font-family: "Lato Bold";
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 17.86px;
+    margin-bottom: 0;
+    letter-spacing: 0.2px;
+}
+.services__list_item-txt {
+    color: #767e9e;
+    font-family: 'Lato';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 21.56px;
+    word-break: break-all;
+    margin-top: 10px;
+}
+.services__list_item:hover .services__list_item-icon {
+    transform: rotateY(360deg); 
+    transition: all 1s ease-in-out;
 }
